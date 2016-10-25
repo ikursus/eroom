@@ -4,7 +4,9 @@
   <h1>Semak Status Tempahan Anda</h1>
   <hr>
 
-  <p>No. Tempahan: <?php echo $no_tempahan; ?></p>
+  <p>No. Tempahan: {{ $no_tempahan }}</p>
+  {{-- Ini Comment Blade --}}
+  <!-- Ini Comment HTML -->
 
   <form>
 
