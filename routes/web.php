@@ -3,8 +3,10 @@
 // Routes halaman utama
 Route::get('/', function() {
 
+  $input = '<input type="text" name="nama">';
+
   // Paparkan template yang bernama homepage.php
-  return view('homepage');
+  return view('homepage', compact('input') );
 
 });
 
@@ -27,11 +29,8 @@ Route::get('status', function() {
 
 
 // Paparkan senarai users dari table users
-Route::get('users', function() {
+Route::get('users', 'UsersController@senarai');
 
-  echo 'Halaman Senarai Users';
-
-});
 // Paparkan detail user berdasarkan ID
 Route::get('users/{id}', function( $id ) {
 
