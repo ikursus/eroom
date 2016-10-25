@@ -16,9 +16,12 @@ Route::get('tempahan', function() {
 });
 
 Route::get('status', function() {
+  // Contoh variable di pass ke view
+  $no_tempahan = 123;
 
   // Paparkan borang untuk semakan status tempahan
-  return view('borang_status');
+  // Sertakan sekali variable untuk dipaparkan pada template
+  return view('borang_status', compact('no_tempahan') );
 
 });
 
