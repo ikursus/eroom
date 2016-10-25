@@ -25,7 +25,7 @@
     </div>
 
     <div>
-      <label>Masa Mula</label>
+      <label>Masa</label>
       <input type="text" name="masa">
     </div>
 
@@ -39,6 +39,22 @@
       <textarea name="aktiviti"></textarea>
     </div>
 
+    <div>
+      <label>Nama Penempah</label>
+      <input type="text" name="nama_penempah">
+    </div>
+
+    <div>
+      <label>Email</label>
+      <input type="email" name="email">
+    </div>
+
+    <div>
+      <label>Telefon</label>
+      <input type="text" name="phone">
+    </div>
+
+    <button type="submit">Tempah Bilik</button>
   </form>
 
 </body>
