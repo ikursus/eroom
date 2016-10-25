@@ -10,13 +10,15 @@ Route::get('/', function() {
 
 Route::get('tempahan', function() {
 
+  // Paparkan borang untuk tempahan bilik
   return view('borang_tempahan');
 
 });
 
 Route::get('status', function() {
 
-  echo 'Halaman Status Booking';
+  // Paparkan borang untuk semakan status tempahan
+  return view('borang_status');
 
 });
 
