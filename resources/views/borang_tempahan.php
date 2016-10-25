@@ -14,7 +14,30 @@
       </select>
     </div>
 
-    
+    <div>
+      <label>Tarikh Mula</label>
+      <input type="date" name="tarikh_mula">
+    </div>
+
+    <div>
+      <label>Tarikh Tamat</label>
+      <input type="date" name="tarikh_tamat">
+    </div>
+
+    <div>
+      <label>Masa Mula</label>
+      <input type="text" name="masa">
+    </div>
+
+    <div>
+      <label>Jumlah Jam</label>
+      <input type="text" name="jam">
+    </div>
+
+    <div>
+      <label>Aktiviti</label>
+      <textarea name="aktiviti"></textarea>
+    </div>
 
   </form>
 
