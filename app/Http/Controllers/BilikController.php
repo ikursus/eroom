@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class UsersController extends Controller
+class BilikController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return 'test';
+        //
     }
 
     /**
@@ -25,7 +25,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('borang_tempahan')';
+        //
     }
 
     /**

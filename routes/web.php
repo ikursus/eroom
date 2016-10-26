@@ -1,56 +1,73 @@
 <?php
+ /*
+  * Bahagian Guest
+  */
+// Route halaman utama
+Route::get('/', 'PagesController@homepage');
+// Route papar borang tempahan
+Route::get('tempahan', 'TempahanController@borangTempahan');
+//Route hantar borang tempahan
+Route::post('tempahan', 'TempahanController@hantarTempahan');
+// Route papar borang semak status tempahan
+Route::get('status', 'TempahanController@borangStatus');
+//Route hantar borang semak status tempahan
+Route::post('status', 'TempahanController@semakStatus');
 
-// Routes halaman utama
-Route::get('/', function() {
-
-  $input = '<input type="text" name="nama">';
-
-  // Paparkan template yang bernama homepage.php
-  return view('homepage', compact('input') );
-
-});
-
-Route::get('tempahan', function() {
-
-  // Paparkan borang untuk tempahan bilik
-  return view('borang_tempahan');
-
-});
-
-Route::get('status', function() {
-  // Contoh variable di pass ke view
-  $no_tempahan = 123;
-
-  // Paparkan borang untuk semakan status tempahan
-  // Sertakan sekali variable untuk dipaparkan pada template
-  return view('borang_status', compact('no_tempahan') );
-
-});
-
-
-// Paparkan senarai users dari table users
-Route::get('users', 'UsersController@senarai');
-
-// Paparkan detail user berdasarkan ID
-Route::get('users/{id}', function( $id ) {
-
-  echo 'Ini adalah profile user ID ' . $id;
-
-});
-
-Route::get('bilik', function() {
-
-  echo 'Halaman Senarai Bilik';
-
-});
-
-Route::get('bookings', function() {
-
-  echo 'Halaman Senarai Bookings';
-
-});
-
-// Routes dari make:auth
+// Routes dari make:auth untuk fungsi login dan logout
 Auth::routes();
 
-Route::get('/dashboard', 'HomeController@index');
+/*
+ * Bahagian Admin
+ */
+// Route halaman dashboard admin
+Route::get('dashboard', 'PagesController@dashboard');
+
+// Route group users
+Route::group(['prefix' => 'users'], function() {
+
+  // Route papar senarai users
+  Route::get('/', 'UsersController@index');
+  // Route papar borang tambah user
+  Route::get('add', 'UsersController@create');
+  // Route simpan maklumat tambah user
+  Route::post('add', 'UsersController@store');
+  // Route papar borang kemaskini user
+  Route::get('{id}', 'UsersController@edit');
+  // Route simpan maklumat kemaskini user
+  Route::patch('{id}', 'UsersController@update');
+  // Route hapus maklumat user
+  Route::delete('{id}', 'UsersController@destroy');
+
+});
+
+// Route group bilik
+Route::group(['prefix' => 'bilik'], function() {
+
+  // Route papar senarai
+  Route::get('/', 'BilikController@index');
+  // Route papar borang tambah
+  Route::get('add', 'BilikController@create');
+  // Route simpan maklumat tambah
+  Route::post('add', 'BilikController@store');
+  // Route papar borang kemaskini
+  Route::get('{id}', 'BilikController@edit');
+  // Route simpan maklumat kemaskini
+  Route::patch('{id}', 'BilikController@update');
+  // Route hapus maklumat
+  Route::delete('{id}', 'BilikController@destroy');
+
+});
+
+// Route group bilik
+Route::group(['prefix' => 'tempahan'], function() {
+
+  // Route papar senarai tempahan
+  Route::get('senarai', 'TempahanController@index');
+  // Route papar borang kemaskini
+  Route::get('{id}', 'TempahanController@edit');
+  // Route simpan maklumat kemaskini
+  Route::patch('{id}', 'TempahanController@update');
+  // Route hapus maklumat
+  Route::delete('{id}', 'TempahanController@destroy');
+
+});
