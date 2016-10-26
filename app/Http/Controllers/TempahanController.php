@@ -8,6 +8,29 @@ use App\Http\Requests;
 
 class TempahanController extends Controller
 {
+    public function borangTempahan()
+    {
+        // Variable data bilik
+        $bilik = array('1' => 'Bilik A', '2' => 'Bilik B');
+
+        return view('tempahan/borang_tempahan', compact('bilik') );
+    }
+
+    public function hantarTempahan()
+    {
+        //
+    }
+
+    public function borangStatus()
+    {
+        return view('tempahan/borang_status');
+    }
+
+    public function semakTempahan()
+    {
+        //
+    }
+
     /**
      * Display a listing of the resource.
      *
