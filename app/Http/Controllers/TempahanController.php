@@ -26,9 +26,9 @@ class TempahanController extends Controller
         return view('tempahan/borang_status');
     }
 
-    public function semakTempahan()
+    public function semakStatus()
     {
-        //
+        return 'Status tempahan';
     }
 
     /**

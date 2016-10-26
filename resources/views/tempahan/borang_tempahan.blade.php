@@ -10,6 +10,8 @@
 
 <form method="POST" action="{{ url('tempahan') }}">
 
+{{ csrf_field() }}
+
 <div class="form-group">
 <label>Pilih Bilik</label>
 <select name="bilik_id" class="form-control">

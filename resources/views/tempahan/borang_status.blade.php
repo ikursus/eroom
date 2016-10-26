@@ -11,6 +11,8 @@
 
 <form method="POST" action="{{ url('status') }}">
 
+{{ csrf_field() }}
+
 <div class="form-group">
 <label>Email Tempahan</label>
 <input type="email" name="email" class="form-control">
