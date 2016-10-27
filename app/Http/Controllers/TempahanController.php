@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Bilik;
 use App\Tempahan;
+use Mail;
 
 class TempahanController extends Controller
 {
@@ -38,6 +39,17 @@ class TempahanController extends Controller
 
       // Simpan data ke dalam Database
       Tempahan::create( $inputs );
+
+      // Data yang nak di pass ke dalam template
+      $data = [
+        'email' => 'test@gmail.com',
+      ];
+
+      // Hantar email
+      Mail::send('emails.template_email', $data, function($message) use($data) {
+        $message->to($data['email']);
+        $message->subject('Email Contoh');
+      });
 
       // Redirect user ke halaman utama.
       return redirect('/')->with('status', 'Tempahan berjaya dihantar!');
