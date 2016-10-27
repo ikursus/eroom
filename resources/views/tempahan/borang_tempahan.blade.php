@@ -8,16 +8,26 @@
 <div class="panel-heading">Borang Tempahan Bilik</div>
 <div class="panel-body">
 
-<form method="POST" action="{{ url('tempahan') }}">
+  @if (count($errors) > 0)
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+  @endif
 
-{{ csrf_field() }}
+{!! Form::open( [ 'method' => 'POST', 'action' => 'TempahanController@hantarTempahan' ] ) !!}
 
 <div class="form-group">
 <label>Pilih Bilik</label>
 <select name="bilik_id" class="form-control">
+
 @foreach( $bilik as $key => $value )
 <option value="{{ $key }}">{{ $value }}</option>
 @endforeach
+
 </select>
 </div>
 
@@ -38,7 +48,7 @@
 
 <div class="form-group">
 <label>Jumlah Jam</label>
-<input type="text" name="jam" class="form-control">
+<input type="text" name="jumlah_jam" class="form-control">
 </div>
 
 <div class="form-group">
@@ -48,21 +58,23 @@
 
 <div class="form-group">
 <label>Nama Penempah</label>
-<input type="text" name="nama_penempah" class="form-control">
+<input type="text" name="nama_tempahan" class="form-control" value="{{ old('nama_tempahan') }}">
 </div>
 
 <div class="form-group">
 <label>Email</label>
-<input type="email" name="email" class="form-control">
+{!! Form::email('email_tempahan', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
 <label>Telefon</label>
-<input type="text" name="phone" class="form-control">
+<input type="text" name="telefon_tempahan" class="form-control">
 </div>
 
 <button type="submit" class="btn btn-primary">Tempah Bilik</button>
-</form>
+
+{!! Form::close() !!}
+
 </div>
 </div>
 </div>

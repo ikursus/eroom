@@ -16,9 +16,23 @@ class TempahanController extends Controller
         return view('tempahan/borang_tempahan', compact('bilik') );
     }
 
-    public function hantarTempahan()
+    public function hantarTempahan( Request $request )
     {
-        //
+      // Validation rules. Semak data dari borang
+      $this->validate( $request, [
+          'bilik_id' => 'required|integer',
+          'tarikh_mula' => 'required|date',
+          'tarikh_tamat' => 'required|date',
+          'masa' => 'required',
+          'jumlah_jam' => 'required|integer',
+          'aktiviti' => 'required|min:3',
+          'nama_tempahan' => 'required|min:3',
+          'email_tempahan' => 'required|email',
+          'telefon_tempahan' => 'required',
+      ]);
+
+      return $request->all();
+
     }
 
     public function borangStatus()
@@ -26,9 +40,15 @@ class TempahanController extends Controller
         return view('tempahan/borang_status');
     }
 
-    public function semakStatus()
+    public function semakStatus( Request $request )
     {
-        return 'Status tempahan';
+      // Validation rules. Semak data dari borang
+      $this->validate( $request, [
+          'email_tempahan' => 'required|email'
+      ]);
+
+      // Paparkan hasil
+      return $request->input('email_tempahan');
     }
 
     /**
