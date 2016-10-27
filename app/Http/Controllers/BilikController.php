@@ -88,9 +88,6 @@ class BilikController extends Controller
     // Dapatkan hanya 1 rekod user berdasarkan ID yang dipilih
     $bilik = Bilik::find($id);
 
-    // Die and Dump
-    // dd( $user );
-
     // Paparkan template edit user
     return view('bilik/edit', compact('bilik') );
   }

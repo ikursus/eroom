@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Bilik;
+use App\Tempahan;
 
 class TempahanController extends Controller
 {
     public function borangTempahan()
     {
         // Variable data bilik
-        $bilik = array('1' => 'Bilik A', '2' => 'Bilik B');
+        $bilik = Bilik::all();
 
         return view('tempahan/borang_tempahan', compact('bilik') );
     }
@@ -31,7 +33,14 @@ class TempahanController extends Controller
           'telefon_tempahan' => 'required',
       ]);
 
-      return $request->all();
+      // Dapatkan semua data dari borang yang dihantar
+      $inputs = $request->all();
+
+      // Simpan data ke dalam Database
+      Tempahan::create( $inputs );
+
+      // Redirect user ke halaman utama.
+      return redirect('/')->with('status', 'Tempahan berjaya dihantar!');
 
     }
 

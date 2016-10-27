@@ -10,6 +10,12 @@
           <div class="panel-heading">Sistem Tempahan Bilik</div>
             <div class="panel-body">
 
+              @if ( session('status') )
+              <div class="alert alert-info">
+                {{ session('status') }}
+              </div>
+              @endif
+
               <p>Selamat datang!</p>
               <ol>
                 <li>Untuk membuat tempahan bilik seminar, <a href="{{ url('tempahan') }}">sila klik sini</a>.</li>

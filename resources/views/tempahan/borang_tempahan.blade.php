@@ -24,8 +24,8 @@
 <label>Pilih Bilik</label>
 <select name="bilik_id" class="form-control">
 
-@foreach( $bilik as $key => $value )
-<option value="{{ $key }}">{{ $value }}</option>
+@foreach( $bilik as $key )
+<option value="{{ $key->id }}">{{ $key->jenis }} ({{ $key->lokasi }})</option>
 @endforeach
 
 </select>
