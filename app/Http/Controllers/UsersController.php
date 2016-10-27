@@ -30,7 +30,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return '';
+        return view('users/tambah');
     }
 
     /**
@@ -41,7 +41,26 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      // Validasi input dari borang
+        $this->validate( $request, [
+          'name' => 'required|min:3',
+          'email' => 'required|email|unique:users,email',
+          'unit' => 'required',
+          'status' => 'required',
+          'phone' => 'required',
+          'password' => 'required|min:3'
+        ]);
+
+        // Terima semua Senarai Input Dari Borang kecuali yang dinyatakan
+        // dalam bentuk array
+        $inputs = $request->except('password', '_token');
+        // bcrypt password dan attach ke $inputs array
+        $inputs['password'] = bcrypt( $request->input('password') );
+
+        // Simpan data ke table users
+        DB::table('users')->insert($inputs);
+        // Kembali ke halaman senarai users jika berjaya update
+        return redirect('users')->with('status', 'User baru ditambah!');
     }
 
     /**
