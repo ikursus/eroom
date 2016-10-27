@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use DB;
+use App\User;
 
 class UsersController extends Controller
 {
@@ -58,7 +59,11 @@ class UsersController extends Controller
         $inputs['password'] = bcrypt( $request->input('password') );
 
         // Simpan data ke table users
-        DB::table('users')->insert($inputs);
+        // DB::table('users')->insert($inputs);
+
+        // Model user
+        User::create($inputs);
+
         // Kembali ke halaman senarai users jika berjaya update
         return redirect('users')->with('status', 'User baru ditambah!');
     }

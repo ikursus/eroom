@@ -285,7 +285,9 @@ class ComposerStaticInit5190fd3ebb2aa2d3b497687f7629f533
 
     public static $classMap = array (
         'AddFasilitiToBilikTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_27_011516_add_fasiliti_to_bilik_table.php',
+        'CreateAhlisTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_27_070800_create_ahlis_table.php',
         'CreateBilikTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_26_075306_create_bilik_table.php',
+        'CreateOrdersTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_27_070718_create_orders_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateTempahanTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_26_075420_create_tempahan_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',

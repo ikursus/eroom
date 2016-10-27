@@ -7,7 +7,9 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddFasilitiToBilikTable' => $baseDir . '/database/migrations/2016_10_27_011516_add_fasiliti_to_bilik_table.php',
+    'CreateAhlisTable' => $baseDir . '/database/migrations/2016_10_27_070800_create_ahlis_table.php',
     'CreateBilikTable' => $baseDir . '/database/migrations/2016_10_26_075306_create_bilik_table.php',
+    'CreateOrdersTable' => $baseDir . '/database/migrations/2016_10_27_070718_create_orders_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateTempahanTable' => $baseDir . '/database/migrations/2016_10_26_075420_create_tempahan_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
